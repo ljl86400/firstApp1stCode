@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
     public static final String TAG="FirstActivity";
 
     @Override
@@ -32,9 +32,9 @@ public class FirstActivity extends AppCompatActivity {
             }
         });
 
-        Button buttonDial=(Button) findViewById(R.id.Button_Dial);
+        Button buttonDial10086=(Button) findViewById(R.id.Button_Dial);
         // setOnClickListener后面的括号中是一段可执行代码，表示对点击的响应动作
-        buttonDial.setOnClickListener(new View.OnClickListener() {
+        buttonDial10086.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intentDial=new Intent(Intent.ACTION_VIEW);
@@ -73,7 +73,7 @@ public class FirstActivity extends AppCompatActivity {
             case R.id.remove_item:
                 Toast.makeText(this,"你按下的是删除键",Toast.LENGTH_SHORT).show();
                 break;
-            // 在菜单键中添加一个退出选项，当点击退出时，退出当前活动
+            // 在菜单键中添加一个退出选项，当点击退出时，退出当前活动回到上一个活动跟Back的功能一致
             case R.id.finish_item:
                 finish();
             default:
