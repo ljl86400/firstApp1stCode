@@ -1,6 +1,7 @@
 package com.shawnlee.firstapp1stcode;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -17,13 +18,14 @@ public class FirstActivity extends AppCompatActivity {
         setContentView(R.layout.first_activity_layout);
         // 实例一个button1的对象，并跟R.id.Button_1联系起来，在界面上对R.id.Button_1的操作
         // 就是对button1的操作
-        Button button1=(Button) findViewById(R.id.Button_1);
+        Button buttonOpenBaidu=(Button) findViewById(R.id.Button_Open_Baidu);
         // setOnClickListener后面的括号中是一段可执行代码，表示对点击的响应动作
-        button1.setOnClickListener(new View.OnClickListener() {
+        buttonOpenBaidu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(FirstActivity.this,"你刚点击了上按键",Toast.LENGTH_SHORT)
-                        .show();
+                Intent intentOpenBaidu=new Intent(Intent.ACTION_VIEW);
+                intentOpenBaidu.setData(Uri.parse("http://www.baidu.com"));
+                startActivity(intentOpenBaidu);
             }
         });
 
