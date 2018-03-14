@@ -20,7 +20,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="打开第二个界面"
+        android:text="打开第二个界面,并传递一串字符“Hello，SecondActivity”"
         android:id="@+id/Button_Open_Second_Activity"
         android:layout_gravity="center_horizontal"
         />

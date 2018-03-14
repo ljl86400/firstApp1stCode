@@ -46,6 +46,8 @@ public class FirstActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // 将Intent启动改为隐式启动
                 Intent openSecondActivity=new Intent("com.example.firstApp1stCode.SecondActivity.ACTION_START");
+                String data="Hello,SecondActivity!";
+                openSecondActivity.putExtra("messageFromFirstActivity",data);
                 startActivity(openSecondActivity);
             }
         });
