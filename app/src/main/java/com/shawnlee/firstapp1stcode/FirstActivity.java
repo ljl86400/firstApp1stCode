@@ -29,13 +29,14 @@ public class FirstActivity extends AppCompatActivity {
             }
         });
 
-        Button button2=(Button) findViewById(R.id.Button_2);
+        Button buttonDial=(Button) findViewById(R.id.Button_Dial);
         // setOnClickListener后面的括号中是一段可执行代码，表示对点击的响应动作
-        button2.setOnClickListener(new View.OnClickListener() {
+        buttonDial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(FirstActivity.this,"你刚点击了下按键",Toast.LENGTH_SHORT)
-                        .show();
+                Intent intentDial=new Intent(Intent.ACTION_VIEW);
+                intentDial.setData(Uri.parse("tel:10086"));
+                startActivity(intentDial);
             }
         });
 

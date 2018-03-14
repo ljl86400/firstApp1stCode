@@ -11,10 +11,10 @@
         />
 
     <Button
-        android:id="@+id/Button_2"
+        android:id="@+id/Button_Dial"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="下按键"
+        android:text="打开拨号界面"
         />
 
     <Button
