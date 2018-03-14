@@ -4,6 +4,6 @@
           android:title="添加"/>
     <item android:title="删除"
           android:id="@+id/remove_item"/>
-    <item android:title="退出"
+    <item android:title="退出程序"
           android:id="@+id/finish_item"/>
 </menu>

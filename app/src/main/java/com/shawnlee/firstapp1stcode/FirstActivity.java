@@ -75,7 +75,7 @@ public class FirstActivity extends BaseActivity {
                 break;
             // 在菜单键中添加一个退出选项，当点击退出时，退出当前活动回到上一个活动跟Back的功能一致
             case R.id.finish_item:
-                finish();
+                ActivityCollector.finishAll();
             default:
                 break;
         }

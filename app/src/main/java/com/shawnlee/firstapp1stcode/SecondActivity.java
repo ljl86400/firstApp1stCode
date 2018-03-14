@@ -45,7 +45,7 @@ public class SecondActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.second_finish_item:
-                finish();
+                ActivityCollector.finishAll();
                 break;
             default:
                 break;
