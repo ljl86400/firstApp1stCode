@@ -24,4 +24,5 @@ public class BaseActivity extends AppCompatActivity {
         // 在生命周期的管理中，如果回调了当前的onDestroy方法，则将这个活动从集合类中删除
         ActivityCollector.removeActivity(this);
     }
+
 }
