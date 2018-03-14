@@ -1,5 +1,6 @@
 package com.shawnlee.firstapp1stcode;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -36,14 +37,17 @@ public class FirstActivity extends AppCompatActivity {
             }
         });
 
-        Button button3=(Button)findViewById(R.id.Button_3);
-        button3.setOnClickListener(new View.OnClickListener() {
+        Button buttonOpenSecondActivity=(Button)findViewById(R.id.Button_Open_Second_Activity);
+        buttonOpenSecondActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(FirstActivity.this, "你刚按下了练习按键", Toast.LENGTH_SHORT)
-                        .show();
+                // 第一个参数是启动活动的上下文，第二个参数是想要启动的目标活动
+                Intent openSecondActivity=new Intent(FirstActivity.this,SecondActivity.class);
+                startActivity(openSecondActivity);
             }
         });
+
+
     }
 
     @Override

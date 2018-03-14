@@ -20,8 +20,8 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="练习按键"
-        android:id="@+id/Button_3"
+        android:text="打开第二个界面"
+        android:id="@+id/Button_Open_Second_Activity"
         android:layout_gravity="center_horizontal"
         />
 
