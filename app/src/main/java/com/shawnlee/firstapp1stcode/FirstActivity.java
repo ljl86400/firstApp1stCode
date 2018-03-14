@@ -44,6 +44,17 @@ public class FirstActivity extends AppCompatActivity {
                         .show();
             }
         });
+
+        /**
+         *  为activity添加一个退出键，当点击退出键时候退出活动
+         */
+        Button buttonFinish=(Button)findViewById(R.id.Button_finish);
+        buttonFinish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     @Override
