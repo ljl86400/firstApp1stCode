@@ -44,17 +44,6 @@ public class FirstActivity extends AppCompatActivity {
                         .show();
             }
         });
-
-        /**
-         *  为activity添加一个退出键，当点击退出键时候退出活动
-         */
-        Button buttonFinish=(Button)findViewById(R.id.Button_finish);
-        buttonFinish.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
     }
 
     @Override
@@ -72,6 +61,9 @@ public class FirstActivity extends AppCompatActivity {
             case R.id.remove_item:
                 Toast.makeText(this,"你按下的是删除键",Toast.LENGTH_SHORT).show();
                 break;
+            // 在菜单键中添加一个退出选项，当点击退出时，退出当前活动
+            case R.id.finish_item:
+                finish();
             default:
                 break;
         }
