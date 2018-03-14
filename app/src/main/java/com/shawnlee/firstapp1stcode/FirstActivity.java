@@ -9,6 +9,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class FirstActivity extends BaseActivity {
@@ -21,6 +22,17 @@ public class FirstActivity extends BaseActivity {
         setContentView(R.layout.first_activity_layout);
         // 实例一个button1的对象，并跟R.id.Button_1联系起来，在界面上对R.id.Button_1的操作
         // 就是对button1的操作
+
+        Button buttonSend=(Button) findViewById(R.id.Button_send);
+        buttonSend.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                EditText editText=(EditText) findViewById(R.id.edit_Text);
+                String inputText=editText.getText().toString();
+                Toast.makeText(FirstActivity.this,inputText,Toast.LENGTH_SHORT).show();
+            }
+        });
+
         Button buttonOpenBaidu=(Button) findViewById(R.id.Button_Open_Baidu);
         // setOnClickListener后面的括号中是一段可执行代码，表示对点击的响应动作
         buttonOpenBaidu.setOnClickListener(new View.OnClickListener() {
