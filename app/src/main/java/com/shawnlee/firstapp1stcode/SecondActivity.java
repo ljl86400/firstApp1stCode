@@ -25,6 +25,11 @@ public class SecondActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * 在SecondActivity中创建一个菜单
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.second,menu);

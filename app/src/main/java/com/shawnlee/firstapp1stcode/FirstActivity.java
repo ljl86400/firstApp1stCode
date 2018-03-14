@@ -41,8 +41,8 @@ public class FirstActivity extends AppCompatActivity {
         buttonOpenSecondActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // 第一个参数是启动活动的上下文，第二个参数是想要启动的目标活动
-                Intent openSecondActivity=new Intent(FirstActivity.this,SecondActivity.class);
+                // 将Intent启动改为隐式启动
+                Intent openSecondActivity=new Intent("com.example.firstApp1stCode.SecondActivity.ACTION_START");
                 startActivity(openSecondActivity);
             }
         });
