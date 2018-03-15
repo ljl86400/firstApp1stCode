@@ -10,16 +10,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class FirstActivity extends BaseActivity {
     public static final String TAG="FirstActivity";
+    private ProgressBar sendBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: ");
         setContentView(R.layout.first_activity_layout);
+        final ProgressBar sendBar=(ProgressBar)findViewById(R.id.send_bar);
         // 实例一个button1的对象，并跟R.id.Button_1联系起来，在界面上对R.id.Button_1的操作
         // 就是对button1的操作
         Button buttonSend=(Button) findViewById(R.id.Button_send);
@@ -29,6 +32,12 @@ public class FirstActivity extends BaseActivity {
                 // 获取edit_Text中输入的内容并转换成字符串，按键之后抛出提示
                 EditText editText=(EditText) findViewById(R.id.edit_Text);
                 String inputText=editText.getText().toString();
+                int progress=sendBar.getProgress();
+                progress=progress+10;
+                if (progress==100|progress>100){
+                    progress=0;
+                }
+                sendBar.setProgress(progress);
                 Toast.makeText(FirstActivity.this,inputText,Toast.LENGTH_SHORT).show();
             }
         });
