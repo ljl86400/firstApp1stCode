@@ -22,11 +22,11 @@ public class FirstActivity extends BaseActivity {
         setContentView(R.layout.first_activity_layout);
         // 实例一个button1的对象，并跟R.id.Button_1联系起来，在界面上对R.id.Button_1的操作
         // 就是对button1的操作
-
         Button buttonSend=(Button) findViewById(R.id.Button_send);
         buttonSend.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
+                // 获取edit_Text中输入的内容并转换成字符串，按键之后抛出提示
                 EditText editText=(EditText) findViewById(R.id.edit_Text);
                 String inputText=editText.getText().toString();
                 Toast.makeText(FirstActivity.this,inputText,Toast.LENGTH_SHORT).show();
@@ -60,14 +60,12 @@ public class FirstActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 // 将Intent启动改为隐式启动
-                Intent openSecondActivity=new Intent("com.example.firstApp1stCode.SecondActivity.ACTION_START");
+                Intent intentOpenSecondActivity=new Intent("com.example.firstApp1stCode.SecondActivity.ACTION_START");
                 String data="Hello,SecondActivity!";
-                openSecondActivity.putExtra("messageFromFirstActivity",data);
-                startActivity(openSecondActivity);
+                intentOpenSecondActivity.putExtra("messageFromFirstActivity",data);
+                startActivity(intentOpenSecondActivity);
             }
         });
-
-
     }
 
     @Override
