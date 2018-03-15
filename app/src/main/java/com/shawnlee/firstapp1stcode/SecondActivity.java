@@ -1,6 +1,8 @@
 package com.shawnlee.firstapp1stcode;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,6 +29,31 @@ public class SecondActivity extends BaseActivity {
             public void onClick(View view) {
                 Intent intentBackToFirstActivity=new Intent(SecondActivity.this,FirstActivity.class);
                 startActivity(intentBackToFirstActivity);
+            }
+        });
+
+        Button dialogButton=(Button)findViewById(R.id.dialog_button);
+        dialogButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder dialog=new AlertDialog.Builder(SecondActivity.this);
+                dialog.setTitle("提示对话");
+                dialog.setMessage("选择OK确认，选择Cancel取消");
+                // 点击对话之外的区域是否响应，true 为响应，false 为不响应
+                dialog.setCancelable(false);
+                dialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    // 此处并未添加执行语句
+                    }
+                });
+                dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                    // 此处并未添加执行语句
+                    }
+                });
+                dialog.show();
             }
         });
     }

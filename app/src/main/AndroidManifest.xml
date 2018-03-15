@@ -20,10 +20,12 @@
         </activity>
         <activity android:name=".SecondActivity">
             <intent-filter>
-                <action android:name="com.example.firstApp1stCode.SecondActivity.ACTION_START"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="com.example.firstApp1stCode.SecondActivity.ACTION_START" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".ThirdActivity"></activity>
     </application>
 
 </manifest>

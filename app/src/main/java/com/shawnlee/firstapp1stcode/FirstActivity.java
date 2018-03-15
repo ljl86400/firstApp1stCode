@@ -2,7 +2,6 @@ package com.shawnlee.firstapp1stcode;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -64,7 +63,7 @@ public class FirstActivity extends BaseActivity {
             }
         });
 
-        Button buttonOpenSecondActivity=(Button)findViewById(R.id.Button_Open_Second_Activity);
+        Button buttonOpenSecondActivity=(Button)findViewById(R.id.button_open_second_activity);
         buttonOpenSecondActivity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,6 +72,15 @@ public class FirstActivity extends BaseActivity {
                 String data="Hello,SecondActivity!";
                 intentOpenSecondActivity.putExtra("messageFromFirstActivity",data);
                 startActivity(intentOpenSecondActivity);
+            }
+        });
+
+        Button openThirdActivityButton=(Button)findViewById(R.id.button_open_third_activity);
+        openThirdActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openThirdActivityIntent=new Intent(FirstActivity.this,ThirdActivity.class);
+                startActivity(openThirdActivityIntent);
             }
         });
     }

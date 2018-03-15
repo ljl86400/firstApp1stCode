@@ -56,12 +56,18 @@
             android:text="打开拨号界面" />
 
         <Button
-            android:id="@+id/Button_Open_Second_Activity"
+            android:id="@+id/button_open_second_activity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="打开第二个界面,并传递一串字符“Hello，SecondActivity”"
             android:textAllCaps="false" />
+        <Button
+            android:id="@+id/button_open_third_activity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="打开一个列表界面"/>
 
 
 
