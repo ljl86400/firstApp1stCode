@@ -5,7 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,10 +25,17 @@ public class FourthActivity extends BaseActivity {
                 R.layout.fruit_list_view_image_item,fruitList);
         ListView fruitImageListView=(ListView)findViewById(R.id.list_view_of_fourth_activity);
         fruitImageListView.setAdapter(fruitImageAdapter);
+        fruitImageListView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Fruit fruit = fruitList.get(position);
+                Toast.makeText(FourthActivity.this,fruit.getName(),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initFruit(){
-        for (int i = 0;i < 20;i ++){
+        for (int i = 0;i < 100;i ++){
             Fruit apple=new Fruit("apple",R.drawable.apple_pic);
             fruitList.add(apple);
             Fruit banana=new Fruit("banana",R.drawable.banana_pic);
