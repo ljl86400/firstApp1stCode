@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/back_to_first_activity_from_fourth_activity_item"
+          android:title="返回到主界面"/>
+    <item android:title="退出程序"
+          android:id="@+id/finish_all_activities_from_fourth_activity_item"/>
+</menu>

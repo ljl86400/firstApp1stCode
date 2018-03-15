@@ -62,12 +62,24 @@
             android:layout_gravity="center_horizontal"
             android:text="打开第二个界面,并传递一串字符“Hello，SecondActivity”"
             android:textAllCaps="false" />
-        <Button
-            android:id="@+id/button_open_third_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="打开一个列表界面"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/button_open_third_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:text="打开一个文字列表界面"/>
+            <Button
+                android:id="@+id/button_open_fourth_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:text="打开一个图文列表界面"/>
+        </LinearLayout>
 
 
 

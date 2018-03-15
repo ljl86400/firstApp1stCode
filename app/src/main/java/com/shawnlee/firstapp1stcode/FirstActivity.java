@@ -83,6 +83,15 @@ public class FirstActivity extends BaseActivity {
                 startActivity(openThirdActivityIntent);
             }
         });
+
+        Button openFourthActivityButton=(Button)findViewById(R.id.button_open_fourth_activity);
+        openFourthActivityButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent openFourthActivityButtonIntent=new Intent(FirstActivity.this,FourthActivity.class);
+                startActivity(openFourthActivityButtonIntent);
+            }
+        });
     }
 
     @Override

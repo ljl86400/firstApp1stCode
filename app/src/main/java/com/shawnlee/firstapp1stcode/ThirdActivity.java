@@ -1,7 +1,6 @@
 package com.shawnlee.firstapp1stcode;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,7 +19,7 @@ public class ThirdActivity extends BaseActivity {
         setContentView(R.layout.activity_third);
         ArrayAdapter<String> fruitListAdapter=new ArrayAdapter<String>(ThirdActivity.this,
                 android.R.layout.simple_list_item_1,fruitList);
-        ListView fruitListView=(ListView) findViewById(R.id.list_view);
+        ListView fruitListView=(ListView) findViewById(R.id.list_view_of_third_activity);
         fruitListView.setAdapter(fruitListAdapter);
     }
 
@@ -33,11 +32,11 @@ public class ThirdActivity extends BaseActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.back_to_first_activity_from_third_activity:
+            case R.id.back_to_first_activity_from_third_activity_item:
                 Intent backToFirstActivityFromThirdActivity=new Intent(ThirdActivity.this,FirstActivity.class);
                 startActivity(backToFirstActivityFromThirdActivity);
                 break;
-            case R.id.finish_all_activities_from_third_activity:
+            case R.id.finish_all_activities_from_third_activity_item:
                 ActivityCollector.finishAll();
                 break;
             default:
