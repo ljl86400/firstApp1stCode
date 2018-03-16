@@ -1,7 +1,12 @@
 package com.shawnlee.firstapp1stcode;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,9 +15,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+/**
+ * 功能：
+ * 按回到主界面按钮，返回FirstActivity；
+ * 在menu中添加退出程序item，点击后退出程序
+ * 添加提示对话按钮，点击后跳出一个对话提示
+ * 添加网络状态变化监控机制
+ */
 
 public class SecondActivity extends BaseActivity {
     public static final String TAG="SecondActivity";
+    private IntentFilter netSituationIntentFilter;
+    private NetworkChangeReceiver networkChangeReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +39,13 @@ public class SecondActivity extends BaseActivity {
         String messageFromFirstActivity=intentFromFirstActivity.getStringExtra("messageFromFirstActivity");
         Log.d("SecondActivity",messageFromFirstActivity);
 
+        // 注册一个广播接收策略，接收系统的网络状态变化信息
+        netSituationIntentFilter=new IntentFilter();
+        netSituationIntentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+        networkChangeReceiver=new NetworkChangeReceiver();
+        registerReceiver(networkChangeReceiver,netSituationIntentFilter);
+
+        // 按键后返回FirstActivity
         Button buttonBackToFirstActivity=findViewById(R.id.back_FirstActivity);
         buttonBackToFirstActivity.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +55,7 @@ public class SecondActivity extends BaseActivity {
             }
         });
 
+        // 按键后跳出一个对话提示
         Button dialogButton=(Button)findViewById(R.id.dialog_button);
         dialogButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +82,20 @@ public class SecondActivity extends BaseActivity {
         });
     }
 
+    class NetworkChangeReceiver extends BroadcastReceiver{
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            ConnectivityManager connectionManager = (ConnectivityManager)
+                    getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connectionManager.getActiveNetworkInfo();
+            if (networkInfo != null && networkInfo.isAvailable()) {
+                Toast.makeText(context, "发现可用网络", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(context, "没有可用网络", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
+
     /**
      * 在SecondActivity中创建一个菜单
      * @param menu
@@ -69,7 +107,10 @@ public class SecondActivity extends BaseActivity {
         return true;
     }
 
-    // finish 是退出当前界面，回到前一个界面
+
+    /**
+     * 当点击menu中的退出程序item时候，执行退出程序
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -109,7 +150,9 @@ public class SecondActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        unregisterReceiver(networkChangeReceiver);
         Log.d(TAG, "onDestroy");
+
     }
 
     @Override

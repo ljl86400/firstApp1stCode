@@ -88,8 +88,8 @@ public class FirstActivity extends BaseActivity {
         openFourthActivityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent openFourthActivityButtonIntent=new Intent(FirstActivity.this,FourthActivity.class);
-                startActivity(openFourthActivityButtonIntent);
+                Intent openFourthActivityIntent=new Intent(FirstActivity.this,FourthActivity.class);
+                startActivity(openFourthActivityIntent);
             }
         });
     }
