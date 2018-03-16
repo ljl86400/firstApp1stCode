@@ -92,6 +92,15 @@ public class FirstActivity extends BaseActivity {
                 startActivity(openFourthActivityIntent);
             }
         });
+
+        Button sendBroadCast1Button=(Button)findViewById(R.id.button_broad_cast_1);
+        sendBroadCast1Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent sendBroadcastIntent = new Intent("com.example.broadcasttest.MY_BROADCAST");
+                sendBroadcast(sendBroadcastIntent);
+            }
+        });
     }
 
     @Override

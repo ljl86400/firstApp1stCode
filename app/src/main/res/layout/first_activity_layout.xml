@@ -81,6 +81,25 @@
                 android:text="打开一个图文列表界面"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/button_broad_cast_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="left"
+                android:text="发送第一条自定义广播"/>
+            <Button
+                android:id="@+id/button_broad_cast_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:text="发送第二条自定义广播"/>
+        </LinearLayout>
+
 
 
 </LinearLayout>

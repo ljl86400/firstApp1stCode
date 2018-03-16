@@ -24,6 +24,7 @@
         <activity android:name=".SecondActivity">
             <intent-filter>
                 <action android:name="com.example.firstApp1stCode.SecondActivity.ACTION_START" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
@@ -35,7 +36,15 @@
             android:enabled="true"
             android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".MyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.broadcasttest.MY_BROADCAST"/>
             </intent-filter>
         </receiver>
     </application>
