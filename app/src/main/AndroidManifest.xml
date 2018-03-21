@@ -17,8 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".FirstActivity"
+
+        <activity android:name=".FirstActivity"
             android:label="第一个应用程序">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".SecondActivity">
             <intent-filter>
                 <action android:name="com.example.firstApp1stCode.SecondActivity.ACTION_START" />
@@ -33,19 +34,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity android:name=".ThirdActivity" />
+
         <activity android:name=".FourthActivity" />
 
-        <receiver
-            android:name=".BootCompleteReceiver"
+        <receiver android:name=".BootCompleteReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name=".MyBroadcastReceiver"
+
+        <receiver android:name=".MyBroadcastReceiver"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -53,9 +55,14 @@
             </intent-filter>
         </receiver>
 
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+        <activity android:name=".LoginActivity"
+            android:label="@string/title_activity_login">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

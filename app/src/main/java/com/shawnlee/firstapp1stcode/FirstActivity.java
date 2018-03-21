@@ -101,6 +101,15 @@ public class FirstActivity extends BaseActivity {
                 sendBroadcast(sendBroadcastIntent);
             }
         });
+
+        Button forceOfflineButton = (Button) findViewById(R.id.force_offline_button);
+        forceOfflineButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                Intent forceOfflineIntent = new Intent("com.example.broadcastbestpractice.FORCE_OFFLINE");
+                sendBroadcast(forceOfflineIntent);
+            }
+        });
     }
 
     @Override
