@@ -12,24 +12,53 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-public class FirstActivity extends BaseActivity {
+public class FirstActivity extends BaseActivity implements View.OnClickListener{
     public static final String TAG="FirstActivity";
-    private ProgressBar sendBar;
+    public ProgressBar sendBar;
+    private EditText editText;
+    private Button buttonSend;
+    private Button buttonOpenBaidu;
+    private Button buttonDial10086;
+    private Button buttonOpenSecondActivity;
+    private Button openThirdActivityButton;
+    private Button openFourthActivityButton;
+    private Button sendBroadCast1Button;
+    private Button forceOfflineButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: ");
         setContentView(R.layout.first_activity_layout);
-        final ProgressBar sendBar=(ProgressBar)findViewById(R.id.send_bar);
-        // 实例一个button1的对象，并跟R.id.Button_1联系起来，在界面上对R.id.Button_1的操作
-        // 就是对button1的操作
-        Button buttonSend=(Button) findViewById(R.id.Button_send);
-        buttonSend.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
+
+        sendBar = findViewById(R.id.send_bar);
+        editText= findViewById(R.id.edit_Text);
+
+        // 实例一个button1的对象，并跟R.id.Button_1联系起来，在界面上对R.id.Button_1的操作就是对button1的操作
+        buttonSend = findViewById(R.id.Button_send);
+        buttonOpenBaidu = findViewById(R.id.Button_Open_Baidu);
+        buttonDial10086 = findViewById(R.id.Button_Dial);
+        buttonOpenSecondActivity = findViewById(R.id.button_open_second_activity);
+        openThirdActivityButton = findViewById(R.id.button_open_third_activity);
+        openFourthActivityButton = findViewById(R.id.button_open_fourth_activity);
+        sendBroadCast1Button = findViewById(R.id.button_broad_cast_1);
+        forceOfflineButton = findViewById(R.id.force_offline_button);
+
+        buttonSend.setOnClickListener(this);
+        buttonOpenBaidu.setOnClickListener(this);
+        buttonDial10086.setOnClickListener(this);
+        buttonOpenSecondActivity.setOnClickListener(this);
+        openThirdActivityButton.setOnClickListener(this);
+        openFourthActivityButton.setOnClickListener(this);
+        sendBroadCast1Button.setOnClickListener(this);
+        forceOfflineButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case R.id.Button_send:
                 // 获取edit_Text中输入的内容并转换成字符串，按键之后抛出提示
-                EditText editText=(EditText) findViewById(R.id.edit_Text);
                 String inputText=editText.getText().toString();
                 int progress=sendBar.getProgress();
                 progress=progress+10;
@@ -38,78 +67,43 @@ public class FirstActivity extends BaseActivity {
                 }
                 sendBar.setProgress(progress);
                 Toast.makeText(FirstActivity.this,inputText,Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        Button buttonOpenBaidu=(Button) findViewById(R.id.Button_Open_Baidu);
-        // setOnClickListener后面的括号中是一段可执行代码，表示对点击的响应动作
-        buttonOpenBaidu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                break;
+            case R.id.Button_Open_Baidu:
                 Intent intentOpenBaidu=new Intent(Intent.ACTION_VIEW);
                 intentOpenBaidu.setData(Uri.parse("http://www.baidu.com"));
                 startActivity(intentOpenBaidu);
-            }
-        });
-
-        Button buttonDial10086=(Button) findViewById(R.id.Button_Dial);
-        // setOnClickListener后面的括号中是一段可执行代码，表示对点击的响应动作
-        buttonDial10086.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                break;
+            case R.id.Button_Dial:
                 Intent intentDial=new Intent(Intent.ACTION_VIEW);
                 intentDial.setData(Uri.parse("tel:10086"));
                 startActivity(intentDial);
-            }
-        });
-
-        Button buttonOpenSecondActivity=(Button)findViewById(R.id.button_open_second_activity);
-        buttonOpenSecondActivity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                break;
+            case R.id.button_open_second_activity:
                 // 将Intent启动改为隐式启动
                 Intent intentOpenSecondActivity=new Intent("com.example.firstApp1stCode.SecondActivity.ACTION_START");
                 String data="Hello,SecondActivity!";
                 intentOpenSecondActivity.putExtra("messageFromFirstActivity",data);
                 startActivity(intentOpenSecondActivity);
-            }
-        });
-
-        Button openThirdActivityButton=(Button)findViewById(R.id.button_open_third_activity);
-        openThirdActivityButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                break;
+            case R.id.button_open_third_activity:
                 Intent openThirdActivityIntent=new Intent(FirstActivity.this,ThirdActivity.class);
                 startActivity(openThirdActivityIntent);
-            }
-        });
-
-        Button openFourthActivityButton=(Button)findViewById(R.id.button_open_fourth_activity);
-        openFourthActivityButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                break;
+            case R.id.button_open_fourth_activity:
                 Intent openFourthActivityIntent=new Intent(FirstActivity.this,FourthActivity.class);
                 startActivity(openFourthActivityIntent);
-            }
-        });
-
-        Button sendBroadCast1Button=(Button)findViewById(R.id.button_broad_cast_1);
-        sendBroadCast1Button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+                break;
+            case R.id.button_broad_cast_1:
                 Intent sendBroadcastIntent = new Intent("com.example.broadcasttest.MY_BROADCAST");
                 sendBroadcast(sendBroadcastIntent);
-            }
-        });
-
-        Button forceOfflineButton = (Button) findViewById(R.id.force_offline_button);
-        forceOfflineButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
+                break;
+            case R.id.force_offline_button:
                 Intent forceOfflineIntent = new Intent("com.example.broadcastbestpractice.FORCE_OFFLINE");
                 sendBroadcast(forceOfflineIntent);
-            }
-        });
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
